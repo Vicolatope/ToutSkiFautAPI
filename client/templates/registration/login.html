@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="modal-login-wrapper">
+    <div class="modal-login-content">
+        <form method="POST">
+            {{form}}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
