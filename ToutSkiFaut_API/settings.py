@@ -36,30 +36,24 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'corsheaders',
     'django.contrib.staticfiles',
     'api',
+    'rest_framework',
     'client',
-    'oauth2_provider',
-    'corsheaders',
+    'rest_framework.authtoken',
 ]
-
-AUTHENTICATION_BACKENDS = (
-    'oauth2_provider.backends.OAuth2Backend',
-    # Uncomment following if you want to access the admin
-    'django.contrib.auth.backends.ModelBackend'
-)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'oauth2_provider.middleware.OAuth2TokenMiddleware',
 ]
 
 ROOT_URLCONF = 'ToutSkiFaut_API.urls'
@@ -68,13 +62,16 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'loaders': [
+                 'django.template.loaders.filesystem.Loader',
+                 'django.template.loaders.app_directories.Loader'
             ],
         },
     },
@@ -130,12 +127,34 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = False
+
+APPEND_SLASH = False
 
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-    )
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'PAGE_SIZE': 10,
+    'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework_json_api.pagination.PageNumberPagination',
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework_json_api.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework_json_api.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+    'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
 }
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200'
+]

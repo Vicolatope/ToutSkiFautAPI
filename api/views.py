@@ -8,14 +8,13 @@ from .models import RentItem
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import HttpResponse, JsonResponse
 from django.contrib.auth.models import User, Group
-from oauth2_provider.views.generic import ProtectedResourceView
-from oauth2_provider.decorators import protected_resource
+from rest_framework.views import APIView
 
 
 # ================================= Location management View ================================= #
 
 
-class RentItemView(ProtectedResourceView):
+class RentItemView(APIView):
     def post(self, request):
         """Create a new RentItem"""
         serializer = RentItemSerializer(data=request.data)
@@ -51,7 +50,7 @@ class RentItemView(ProtectedResourceView):
         """List all rentitems"""
         items = RentItem.objects.all()
         serializer = RentItemSerializer(items, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
 
 
 # /location/(item_id)
