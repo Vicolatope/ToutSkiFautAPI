@@ -14,6 +14,7 @@ from oauth2_provider.decorators import protected_resource
 
 # ================================= Location management View ================================= #
 
+
 class RentItemView(ProtectedResourceView):
     def post(self, request):
         """Create a new RentItem"""
