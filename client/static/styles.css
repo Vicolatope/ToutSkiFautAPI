@@ -95,11 +95,11 @@ html, body {
       width: 33.333%;
       z-index: 10; }
       .homepage-wrapper .custom-border .border-inside.red {
-        color: #e30513; }
+        border-bottom: 5px solid #e30513; }
       .homepage-wrapper .custom-border .border-inside.black {
-        color: #1c1c1b; }
+        border-bottom: 5px solid #1c1c1b; }
       .homepage-wrapper .custom-border .border-inside.blue {
-        color: #159EDA; }
+        border-bottom: 5px solid #159EDA; }
   .homepage-wrapper .explain-cards-wrap {
     display: flex;
     flex-direction: column;

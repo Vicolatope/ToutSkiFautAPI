@@ -128,13 +128,13 @@ html, body {
 			width: 33.333%;
 			z-index: 10;
 			&.red {
-				color: $red;
+				border-bottom:5px solid  $red;
 			}
 			&.black {
-				color: $black;
+				border-bottom:5px solid $black;
 			}
 			&.blue {
-				color: $blue;
+				border-bottom:5px solid $blue;
 			}
 		}
 	}
