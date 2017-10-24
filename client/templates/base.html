@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToutSkiFaut</title>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/css/tether.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+	<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.default.min.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="{% static 'icons-1/flaticon.css' %}"> -->
+	<link rel="stylesheet" type="text/css" href="{% static 'icons-2/flaticon.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%  static 'styles.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	{% block navbar %}
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <a class="navbar-brand" href="#"><span class="brand-name"><span>Tout</span><span>Ski</span><span>Faut</span></span></a>
+	  <div class="logo-wrapper">
+		<img class="center-logo" src="{% static 'logo-couleur.png' %}">
+		</div>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	    </ul>
+	    <ul class="navbar-nav" id="log-nav">
+	    	<li class="nav-item">
+	        	<a class="nav-link" href="#" id="navbar-add-item">Louer mes skis</a>
+	      	</li>
+		    {% if session.isAuthenticated %}
+		    <li class="nav-item">	
+		    	<a class="nav-link" href="/accounts/logging_out">Déconnexion</a>
+		    </li>
+		    {% else %}
+		    <li class="nav-item">
+		    	<a class="nav-link" href="#" id="inscription-toggle">Inscription</a>
+		    </li>
+		    <li class="nav-item">
+		    	<a class="nav-link" href="#" id="login-toggle">Connexion</a>
+		    </li>
+		    {% endif %}
+		</ul>
+	  </div>
+	</nav>
+	{% endblock %}
+	<div class="container-fluid base-wrap">
+		{% block content %}
+		{% endblock %}
+	</div>
+	<div class="modal fade" id="login-modal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Connexion</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+ 			<div class="modal-body">
+ 				<div id="login-errors">
+ 				</div>
+ 				<form>
+ 					<div class="form-group">
+ 						<label for="login-username" class="form-control-label">Mail</label>
+		            	<input type="text" class="form-control" id="login-username">
+ 					</div>
+ 					<div class="form-group">
+ 						<label for="login-password" class="form-control-label">Mot de passe</label>
+		            	<input type="text" class="form-control" id="login-password">
+ 					</div>
+ 					<div id="connect-btn">
+ 						Se connecter
+ 					</div>
+ 				</form>
+  			</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="inscription-modal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Inscription</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+ 			<div class="modal-body">
+ 				<div id="inscription-errors">
+ 				</div>
+ 				<form>
+ 					<div class="form-group">
+ 						<label for="inscript-username" class="form-control-label">Mail</label>
+		            	<input type="text" class="form-control" id="inscript-username">
+ 					</div>
+ 					<div class="form-group">
+ 						<label for="inscript-password" class="form-control-label">Mot de passe</label>
+		            	<input type="text" class="form-control" id="inscript-password">
+ 					</div>
+ 					<div id="create-btn">
+ 						Créer un compte
+ 					</div>
+ 				</form>
+  			</div>
+	    </div>
+	  </div>
+	</div>
+</body>
+	<script>
+		// CONNEXION HANDLING
+
+		var isConnected = false;
+		// Toggle login & subscript modal
+		$('#login-toggle').on('click', function() {
+			$('#login-modal').modal('show');
+		});
+		$('#inscription-toggle').on('click', function() {
+			$('#inscription-modal').modal('show');
+		});
+
+		// get a cookie
+		function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = jQuery.trim(cookies[i]);
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+
+		//Send credential to backend
+		function connect() {
+			console.log(getCookie('csrftoken'));
+			console.log('hola');
+			$.ajax({
+				url: '/accounts/login',
+				method: 'POST',
+				headers: {
+					'X_CSRFTOKEN': getCookie('csrftoken')
+				},
+				data: {
+					username: $('#login-username').val(),
+					password: $('#login-password').val(),
+				},
+				success: function(r) {
+					if (r === 'ok') {
+						$('#log-nav')
+							.html(`<li class="nav-item">	
+				    				<a class="nav-link" href="/accounts/logging_out">Déconnexion</a>
+				     				</li>`);
+						$('#login-modal').modal('hide');
+						$('#login-errors').text('');
+						isConnected = true;
+					}
+				},
+				error: function(r) {
+					$('#login-errors').text('Mauvais identifiants ..');
+				}
+			});
+		}
+
+		// Create an account
+		function createAccount() {
+			var username = $('#inscript-username').val();
+			var password = $('#inscript-password').val();
+			console.log(username, password);
+			$.ajax({
+				url: '/accounts/create',
+				method: 'POST',
+				data: {
+					username: username,
+					password: password,
+				},
+				success: function(r) {
+					console.log(r);
+					if (r === 'user created') {
+						$('#log-nav')
+							.html(`<li class="nav-item">	
+				    				<a class="nav-link" href="/accounts/logging_out">Déconnexion</a>
+				    				</li>`);
+						$('#inscription-modal').modal('hide');
+						$('#inscription-errors').text('');
+						isConnected = true;
+					}
+				},
+				error: function(e) {
+					console.log(e);
+				}
+			})
+		}
+		$('#connect-btn').on('click', function() {
+			connect();
+			console.log('hello');
+		});
+		$('#create-btn').on('click', function() {
+			createAccount();
+			console.log('hello');
+		});
+	</script>
+	{% block script %}
+	{% endblock %}
+</html>

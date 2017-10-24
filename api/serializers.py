@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import RentItem
+import json
 
 class RentItemSerializer(serializers.ModelSerializer):
     class Meta:

@@ -10,11 +10,27 @@ from django.http.response import HttpResponse, JsonResponse
 from django.contrib.auth.models import User, Group
 from rest_framework.views import APIView
 
+from .constants import db_credentials
+
+import psycopg2
+
+import json
 
 # ================================= Location management View ================================= #
 
+@api_view(['GET'])
+def rent_item_detail(request, pk):
+    print(pk, type(pk))
+    try:
+        rent_item = RentItem.objects.get(id=int(pk))
+        print(rent_item.name)
+    except RentItem.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    srlz = RentItemSerializer(rent_item)
+    return Response({'rentitem': srlz.data})
 
-class RentItemView(APIView):
+
+class RentItemList(APIView):
     def post(self, request):
         """Create a new RentItem"""
         serializer = RentItemSerializer(data=request.data)
@@ -50,7 +66,25 @@ class RentItemView(APIView):
         """List all rentitems"""
         items = RentItem.objects.all()
         serializer = RentItemSerializer(items, many=True)
-        return Response(serializer.data)
+
+        return Response({'rentitem': serializer.data})
+
+@api_view(['GET'])
+def get_all_known_items(request, type, year):
+    with psycopg2.connect(db_credentials) as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT 
+                    brand_name,
+                    ARRAY_AGG(model_name)
+                 from ski_brands SB
+                    join ski_items SI
+                    ON SI.brand_id = SB.id
+                    WHERE SI.model_year = 2012
+                    group by brand_name
+                """, {'year': year})
+            res = {el[0]: el[1] for el in cur.fetchall()}
+            return JsonResponse(res, safe=False)
 
 
 # /location/(item_id)

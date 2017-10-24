@@ -25,8 +25,9 @@ SECRET_KEY = '1=c_(thtl-0fm#37k&(ua46c@aw7e)ex5yf*x!k&p&+ef!r%8w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
+CSRF_HEADER_NAME = 'X_CSRFTOKEN'
 
 # Application definition
 
@@ -38,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'corsheaders',
     'django.contrib.staticfiles',
-    'api',
     'rest_framework',
     'client',
     'rest_framework.authtoken',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +86,12 @@ WSGI_APPLICATION = 'ToutSkiFaut_API.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_tsf',
+        'USER': 'victordanain',
+        'PASSWORD': 'Homeland1',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -129,10 +134,15 @@ USE_TZ = True
 
 
 CORS_ALLOW_CREDENTIALS = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 APPEND_SLASH = False
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    "client/static"
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -154,7 +164,3 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
 }
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:4200'
-]

@@ -5,5 +5,7 @@ from . import views
 urlpatterns = [
     url(r'token/obtain/', obtain_auth_token),
     url(r'^accounts/create', views.create_account),
+    url(r'^accounts/login', views.login),
     url(r'logged_out', views.did_loggout),
+    url(r'', views.home_page),
 ]

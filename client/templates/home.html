@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- <div class="logo-wrapper">
+	<img class="center-logo" src="{% static 'logo-couleur.png' %}">
+</div> -->
+<div class="homepage-wrapper">
+	<div class="home">
+		<div class="home-image">
+			<img src="{% static 'home-photo.jpg' %}">
+			<div class="image-up">
+				<div class="image-title">
+					<h2>Louez votre matériel de ski et gagnez de l'argent<br>sans bouger de chez vous !</h2>
+				</div>
+				<div class="button-wrapper">
+					<div class="add-item-pic" id="add-item-toggle">
+						<span>Mettre mes skis en location</span>
+					</div>
+				</div>
+				<div class="more-info-linker">
+					<a class="more-info-link">Tout ce qu'il faut savoir pour mettre vos skis en location</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="custom-border">
+		<div class="border-inside red"></div>
+		<div class="border-inside black"></div>
+		<div class="border-inside blue"></div>
+	</div>
+	<!-- <div class="explain-cards-wrap">
+		<h4 class="text-center">
+			Avec
+			<span class="brand-name">
+				<span>Tout</span><span>Ski</span><span>Faut</span>
+			</span>
+			gagnez de l'argent grâce à votre matériel de ski
+		</h4>
+		<div class="cards-wrapper">
+			<div class="explain-item">
+				<div class="item-desc">
+					<img src="{% static 'logo-step-1.png' %}">
+					<div class="step-item-1">
+						<div class="step-b"></div>
+						<h1>1</h1>
+						<div class="step-a"></div>
+					</div>
+					<h3 class="text-center">
+						Je mets mon matériel en location sur le site
+					</h3>
+				</div>
+			</div>
+			<div class="explain-item">
+			</div>
+			<div class="explain-item">
+			</div>
+		</div>
+	</div>
+</div> -->
+<div class="explain-wrapper">
+	<div class="explain-add-item">
+		<div class="add-item-label">
+			<h2 class="text-center">
+				<span class="brand-name">
+					<span>Tout</span><span>Ski</span><span>Faut</span>
+				</span>
+				<b> est la 1<sup>ère</sup> plateforme de location de matériel de ski 	entre particuliers</b>
+			</h2>
+			<div class="desc-wrapper">
+				<h4 class="text-center">Gagnez jusqu’à 500 euros par an en quelques clics et sans bouger de chez vous : postez l’annonce de votre matériel sur notre site, un membre de l’équipe entrera en contact avec vous pour récupérer votre matériel et vous le rapportera à la fin de la saison.</h4>
+				<h4 class="text-center">Dès sa prise en charge, votre matériel sera intégralement assuré (perte, casse et vol)</h4>
+				<h4 class="text-center">
+				 <b>7j/7 et 24h/24.</b></h4>
+				<h4 class="text-center">Alors n’hésitez-plus et rejoignez l'aventure
+					<span class="brand-name">
+						<span>Tout</span><span>Ski</span><span>Faut</span>
+					</span>
+				</h4>
+			</div>
+		</div>
+		<div class="add-item-btn" id="add-item-toggle">
+			<h4>Mettre mon matériel en location</h4>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="add-item-modal">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ajouter un article</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div class="progress-bar-wrapper">
+      		<div class="progress-step-1">
+      		</div>
+      	</div>
+		<div class="content-column">
+	      	<div class="step-title">
+				<h5 id="step-title">Type d'article</h5>
+			</div>
+			<div class="step-description">
+		   			Sélectionner le type de l'article que vous désirez ajouter, vous ne pouvez ajouter qu'un article à la fois
+		   	</div>	
+		   <div class="add-item-step" id="step-1" style="display: none;">
+		   		<form>
+		   			<div class="form-one-line">
+			   			<div class="form-group">
+			            	<label  class="form-control-label">Type d'objet</label>
+			            	<select class="custom-select" id="select-item-type">
+		  						<option selected disabled>Sélectionner un type</option>
+			            	</select>
+			            </div>
+			            <div class="form-group">
+			            	<label for="brand" class="form-control-label">Année d'achat</label>
+			            	<select class="custom-select" id="purchase-year">
+		  						<option disabled selected>Année</option>
+			            	</select>
+				         </div>
+			        </div>
+		   			<div class="form-group">
+		            	<label for="brand" class="form-control-label">Marque</label>
+		            	<input type="text" id="brand" class="form-control" disabled placeholder="Sélectionner d'abord l'année et le type de l'objet">
+		          	</div>
+		          	<div class="form-group">
+		            	<label for="model" class="form-control-label">Modèle</label>
+		            	<input disabled type="text" class="form-control" id="model">
+		          	</div>
+		   		</form>
+		   </div>
+		   <div class="add-item-step" id="step-2" style="display:none">
+		   		<form>
+		   			<div class="form-group">
+		   				<label for="brand" class="form-control-label">Semaines de disponibilité</label>
+		   				<input name="daterange" id="dispo-picker">
+		   			</div>
+		   		</form>
+		   </div>
+		   <div class="step-navigation">
+		   	<div class="add-item-nav" id="prev-step">Précédent</div>
+		   	<div class="add-item-nav disabled" id="next-step">Suivant</div>
+	      </div>
+	  </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+	// --- ADD-ITEM HANDLING ---
+	let actualItem = {};
+	let actualStep = 0;
+
+	// The state of each step and his error message
+	let validSteps = {
+		// 1: [false, 'Vous devez choisir le type de votre objet !'],
+		1: [true, 'Remplissez la marque, le modèle et l\'année d\'achat de votre objet !'],
+		2: [false, 'Vous n\'avez choisi aucune période durant laquelle vous disposez de vos skis, en êtes-vous sûr ?']
+	}
+
+	// Useful consts
+
+	const itemTypes = {
+		0: 'Skis',
+		1: 'Chaussures',
+		2: 'Casque',
+		3: 'Masque',
+		4: 'Batons'
+	}
+
+	const addItemTitles = {
+		// 1: "Type d'article",
+		1: 'Informations en +',
+		2: "Durée d'indisponibilité",
+	}
+	const addItemDesc = {
+		// 1: "Sélectionner le type de l'article que vous désirez ajouter, vous ne pouvez ajouter qu'un article à la fois",
+		1: "Plus d'informations à propos de votre article",
+		2: "Les skis seront disponible sur notre site pendant toute la durée de la saison, cependant vous pouvez en profiter pendant 3 semaines si vous le désirez"
+	}
+	// Show add-item toggle on click
+	$('#add-item-toggle').on('click', function() {
+		$('#add-item-modal').modal('show');
+	});
+
+
+
+	// Step 1 : item infos
+
+	// Fill the select date with years
+
+
+	function fillSelectFrom(selectId, year) {
+		t = new Date();
+		for (let i =  t.getFullYear() + 1; i >= year; i--) {
+			console.log(i);
+			$('#' + selectId).append('<option>' + i + '</option>');
+		}
+	}
+
+
+	fillSelectFrom('purchase-year', 2010);
+	// fill select woth item types
+
+	function fillSelectWithTypes(selectId, types) {
+		for (var i = 0;i < Object.keys(types).length;i++) {
+			$('#' + selectId).append('<option>' + types[i] + '</option>');	
+		}
+	}
+	fillSelectWithTypes('select-item-type', itemTypes);
+
+	// function 
+
+	let specSelected = [false, false];
+
+		// Events on items infos
+	$('#select-item-type').on('change', function() {
+		specSelected[0] = true;
+		if (specSelected[1] === true) {
+			fillBrandWithPossibles();
+		}
+	});
+
+	$('#purchase-year').on('change', function() {
+		specSelected[1] = true;
+		if (specSelected[0] === true) {
+			fillBrandWithPossibles();
+		}
+	});
+
+	let brandSelectize;
+	function fillBrandWithPossibles() {
+		$('#brand').attr('disabled', false);
+		$('#brand').attr('placeholder', '');
+		$('#brand').removeClass('form-control');
+		$('#model').attr('disabled', false);
+		if (brandSelectize === undefined) {
+			let $brandSelectize = $('#brand').selectize({
+				plugins: ['remove_button'],
+				create: true,
+				searchField: ['name'],
+				labelField: 'name',
+				maxItems: 1,
+				// onChange: 
+			});
+			brandSelectize = $brandSelectize[0].selectize;
+		}
+		brandSelectize.clearOptions();
+		$.ajax({
+			url: '/api/all_items/1/2010',
+			success: function(r) {
+				let brandsToAdd = _.map(r, function(v, k) {
+					console.log(v, k);
+					return {
+						name: k,
+						value: k,
+						text: v
+					};
+				});
+				brandSelectize.addOption(brandsToAdd);
+			}
+		})
+	}
+
+	goNextStep();
+	// Step 3 : dispos
+
+	// Init for daterangepicker
+	$('#dispo-picker').daterangepicker({
+		minDate: '15/11/2017',
+    	maxDate: '15/04/2018'
+	});
+
+
+	// Validate the form and send it to back
+	function sendItem() {
+		
+	}
+
+	function stepSpecifics() {
+		if (actualStep === 1) {
+			$('#prev-step').hide();
+			$('.step-navigation').css('justify-content', 'flex-end');
+		} else {
+			$('#prev-step').show();
+			$('.step-navigation').css('justify-content', 'space-between');
+		}
+		if (actualStep === 3) {
+			$('#next-step').text('Ajouter l\'objet');
+			$('#next-step').unbind().on('click', function() {
+
+			});
+		}
+	}
+
+	function goNextStep() {
+		if (actualStep !== 0 && validSteps[actualStep][0] !== true) {
+			// ADD ERROR HANDLING WHEN STEP HASNT BEEN VALIDATED => MODAL OR JUST MESSAGE ??
+		} else {
+			$('#step-' + actualStep).hide();
+			actualStep += 1;
+			$('#step-' + actualStep).show();
+			$('#step-title').text(addItemTitles[actualStep]);
+			$('.step-description').text(addItemDesc[actualStep]);
+			stepSpecifics();	
+		}
+	}
+
+	// previous and next step for add item modal
+	$('#next-step').on('click', function() {
+		goNextStep();
+	});
+	$('#prev-step').on('click', function() {
+		$('#step-' + actualStep).hide();
+		actualStep -= (actualStep === 1) ? 0 : 1;
+		$('#step-title').text(addItemTitles[actualStep]);
+		$('#step-' + actualStep).show();
+		$('.step-description').text(addItemDesc[actualStep]);
+		stepSpecifics();
+	});
+
+
+
+
+</script>
+{% endblock %}

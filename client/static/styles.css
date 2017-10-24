@@ -1,0 +1,258 @@
+* {
+  font-family: 'Roboto', sans-serif; }
+
+html, body {
+  height: 200%;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.base-wrap {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.brand-name span {
+  font-weight: bold; }
+.brand-name span:nth-child(1) {
+  color: #159EDA; }
+.brand-name span:nth-child(2) {
+  color: #1c1c1b; }
+.brand-name span:nth-child(3) {
+  color: #e30513; }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  border-bottom: 3px solid #84847f; }
+  .navbar .nav-link {
+    font-weight: bold; }
+  .navbar .logo-wrapper {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    right: calc(50% - 50px);
+    top: 0px; }
+    .navbar .logo-wrapper .center-logo {
+      height: 100px;
+      width: 100px; }
+
+.homepage-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column; }
+  .homepage-wrapper .home {
+    background-color: #65c6f0; }
+    .homepage-wrapper .home .home-image {
+      width: 100%;
+      position: relative; }
+      .homepage-wrapper .home .home-image img {
+        width: 100%; }
+      .homepage-wrapper .home .home-image .image-up {
+        background-color: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute; }
+        .homepage-wrapper .home .home-image .image-up .image-title {
+          text-align: center;
+          width: 60%;
+          margin-top: 12%;
+          color: white; }
+        .homepage-wrapper .home .home-image .image-up .button-wrapper {
+          margin-top: 3%; }
+          .homepage-wrapper .home .home-image .image-up .button-wrapper .add-item-pic {
+            cursor: pointer;
+            background-color: white;
+            color: #444;
+            padding: 8px;
+            padding-left: 28px;
+            padding-right: 28px;
+            border-radius: 5px; }
+            .homepage-wrapper .home .home-image .image-up .button-wrapper .add-item-pic:hover {
+              background-color: #117cab;
+              color: white; }
+        .homepage-wrapper .home .home-image .image-up .more-info-linker {
+          margin-top: 5%;
+          color: white;
+          cursor: pointer;
+          text-decoration: underline; }
+  .homepage-wrapper .custom-border {
+    width: 100%;
+    display: flex;
+    height: 5px; }
+    .homepage-wrapper .custom-border .border-inside {
+      height: 100%;
+      width: 33.333%;
+      z-index: 10; }
+      .homepage-wrapper .custom-border .border-inside.red {
+        color: #e30513; }
+      .homepage-wrapper .custom-border .border-inside.black {
+        color: #1c1c1b; }
+      .homepage-wrapper .custom-border .border-inside.blue {
+        color: #159EDA; }
+  .homepage-wrapper .explain-cards-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%; }
+    .homepage-wrapper .explain-cards-wrap h2 {
+      font-family: 'Droid Serif', Helvetica, Arial, sans-serif; }
+    .homepage-wrapper .explain-cards-wrap .cards-wrapper {
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      width: 90%; }
+      .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item {
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        height: 400px;
+        max-width: 270px;
+        border-radius: 3%;
+        border: 2px solid #84847f; }
+        .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item:hover {
+          border: 2px solid #50504d; }
+        .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc {
+          padding-left: 12px;
+          padding-right: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 90%;
+          align-items: center; }
+          .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc .step-item-1 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold; }
+            .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc .step-item-1 .step-b, .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc .step-item-1 .step-a {
+              height: 2px;
+              width: 42%;
+              background-color: #84847f; }
+          .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc img {
+            width: 90%;
+            margin-top: 18px; }
+          .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc h3 {
+            margin-top: 10px;
+            margin-bottom: 0; }
+
+.test-dropdown {
+  height: 20%; }
+
+.explain-wrapper {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center; }
+  .explain-wrapper .explain-add-item {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px; }
+    .explain-wrapper .explain-add-item .add-item-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .explain-wrapper .explain-add-item .add-item-label h2 {
+        margin-bottom: 18px; }
+      .explain-wrapper .explain-add-item .add-item-label .desc-wrapper {
+        padding: 12px;
+        border-radius: 5px;
+        margin-top: 22px; }
+        .explain-wrapper .explain-add-item .add-item-label .desc-wrapper h4:last-child {
+          margin-top: 36px;
+          margin-bottom: 36px; }
+    .explain-wrapper .explain-add-item .add-item-btn {
+      cursor: pointer;
+      color: white;
+      border: 2px solid #65c6f0;
+      background-color: #65c6f0;
+      border-radius: 2px;
+      padding: 8px; }
+      .explain-wrapper .explain-add-item .add-item-btn h4 {
+        padding: 0;
+        margin: 0; }
+      .explain-wrapper .explain-add-item .add-item-btn:hover {
+        border: 2px solid #36b4ec;
+        background-color: #36b4ec; }
+
+#add-item-modal .modal-header {
+  color: #1c1c1b; }
+  #add-item-modal .modal-header .modal-title {
+    width: 100%;
+    text-align: center;
+    font-weight: bolder; }
+  #add-item-modal .modal-header span {
+    color: #1c1c1b; }
+#add-item-modal .step-title {
+  font-weight: bold;
+  color: #1c1c1b;
+  margin-bottom: 2px; }
+#add-item-modal .step-description {
+  color: rgba(28, 28, 27, 0.7);
+  margin-bottom: 10px; }
+#add-item-modal .add-item-step {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  #add-item-modal .add-item-step .selectize-input.disabled {
+    cursor: not-allowed !important; }
+    #add-item-modal .add-item-step .selectize-input.disabled * {
+      cursor: not-allowed !important; }
+  #add-item-modal .add-item-step .form-one-line {
+    display: flex;
+    justify-content: space-between; }
+    #add-item-modal .add-item-step .form-one-line .form-group.unselected select {
+      border: #fb535d; }
+    #add-item-modal .add-item-step .form-one-line .form-group {
+      display: flex;
+      width: 50%;
+      flex-direction: column; }
+    #add-item-modal .add-item-step .form-one-line .form-group:last-child {
+      width: 40%; }
+#add-item-modal .step-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+  #add-item-modal .step-navigation .add-item-nav {
+    cursor: pointer;
+    /*border: 2px solid #159EDA;*/
+    color: #6a6a66;
+    /*color: white;*/
+    margin: 8px;
+    margin-right: 24px;
+    margin-left: 24px;
+    text-align: center;
+    padding: 4px; }
+    #add-item-modal .step-navigation .add-item-nav:hover {
+      background-color: white;
+      color: #1c1c1b; }
+    #add-item-modal .step-navigation .add-item-nav:last-child {
+      border-radius: 2px;
+      background-color: #fb535d;
+      color: white;
+      padding-left: 12px;
+      padding-right: 12px; }
+      #add-item-modal .step-navigation .add-item-nav:last-child:hover {
+        background-color: #fb3a46; }
+      #add-item-modal .step-navigation .add-item-nav:last-child.disabled {
+        background-color: #ffe8ea;
+        cursor: not-allowed; }
+
+/*# sourceMappingURL=styles.css.map */
