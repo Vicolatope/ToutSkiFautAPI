@@ -13,316 +13,270 @@
 					<h2>Louez votre matériel de ski et gagnez de l'argent<br>sans bouger de chez vous !</h2>
 				</div>
 				<div class="button-wrapper">
-					<div class="add-item-pic" id="add-item-toggle">
-						<span>Mettre mes skis en location</span>
-					</div>
-				</div>
-				<div class="more-info-linker">
-					<a class="more-info-link">Tout ce qu'il faut savoir pour mettre vos skis en location</a>
+					<a href="/add_item">
+						<div class="add-item-pic" id="add-item-toggle">
+							<span>Mettre mes skis en location</span>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="custom-border">
+	<!-- <div class="custom-border">
+		<div class="border-inside blue"></div>
 		<div class="border-inside red"></div>
 		<div class="border-inside black"></div>
-		<div class="border-inside blue"></div>
-	</div>
-	<!-- <div class="explain-cards-wrap">
-		<h4 class="text-center">
-			Avec
-			<span class="brand-name">
-				<span>Tout</span><span>Ski</span><span>Faut</span>
-			</span>
-			gagnez de l'argent grâce à votre matériel de ski
-		</h4>
-		<div class="cards-wrapper">
-			<div class="explain-item">
-				<div class="item-desc">
-					<img src="{% static 'logo-step-1.png' %}">
-					<div class="step-item-1">
-						<div class="step-b"></div>
-						<h1>1</h1>
-						<div class="step-a"></div>
-					</div>
-					<h3 class="text-center">
-						Je mets mon matériel en location sur le site
-					</h3>
+	</div> -->
+	<div class="simulate-income-wrapper">
+		<div class="simulate-income">
+			<div class="desc-wrapper">
+				<h4>Sortez vos skis du placard et gagnez jusqu'à 500€ par saison !</h4>
+			</div>
+			<div class="select-wrapper">
+				<div class="item-wrap">
+					<label for="select-item">
+						Matériel possédé
+						<select id="select-item" class="form-control">
+							<option value="18">Skis et chaussures</option>
+							<option value="8">Skis</option>
+							<option value="8c">Chaussures</option>
+						</select>
+					</label>
+				</div>
+				<div class="item-wrap">
+					<label for="select-quality">
+						Gamme
+						<select id="select-quality" class="form-control">
+							<option value="0">Bleue</option>
+							<option value="6">Rouge</option>
+							<option value="12">Noire</option>
+						</select>
+					</label>
 				</div>
 			</div>
-			<div class="explain-item">
-			</div>
-			<div class="explain-item">
+			<div class="slider-wrapper">
+				<h1 id="estim-value">18 €</h1>
+				<h5 id="duration-wrap">À louer <span id="duration-value">1</span> semaine<span id="range-multi">s</span> dans la saison</h5>
+				<div class="input-wrap">
+					<input type="range" min="1" max="18" id="select-duration" value="1">
+				</div>
+				<label for="check-batons" class="baton-check">
+					<div class="checker-wrapper">
+						<div class="custom-checker">
+							<div class="checker"></div>
+						</div>
+					</div>
+					<span><span id="with-sticks">Sans</span> bâtons</span>
+					<input type="checkbox" hidden id="check-batons">
+				</label>
 			</div>
 		</div>
 	</div>
-</div> -->
-<div class="explain-wrapper">
-	<div class="explain-add-item">
-		<div class="add-item-label">
-			<h2 class="text-center">
-				<span class="brand-name">
-					<span>Tout</span><span>Ski</span><span>Faut</span>
-				</span>
-				<b> est la 1<sup>ère</sup> plateforme de location de matériel de ski 	entre particuliers</b>
-			</h2>
-			<div class="desc-wrapper">
-				<h4 class="text-center">Gagnez jusqu’à 500 euros par an en quelques clics et sans bouger de chez vous : postez l’annonce de votre matériel sur notre site, un membre de l’équipe entrera en contact avec vous pour récupérer votre matériel et vous le rapportera à la fin de la saison.</h4>
-				<h4 class="text-center">Dès sa prise en charge, votre matériel sera intégralement assuré (perte, casse et vol)</h4>
-				<h4 class="text-center">
-				 <b>7j/7 et 24h/24.</b></h4>
-				<h4 class="text-center">Alors n’hésitez-plus et rejoignez l'aventure
-					<span class="brand-name">
-						<span>Tout</span><span>Ski</span><span>Faut</span>
+<div class="how-wrapper">
+	<div class=" row content-how-wrapper">
+		<div class="content-wrapper col-md-6 col-xs-12" id="prop-tab">
+			<div class="content-wrap">
+				<div class="content-bubble">
+					<h5>Vous voulez rentabiliser votre matériel</h5>
+				</div>
+				<div class="content">
+					<ol>
+					<li>Postez l'annonce de votre matériel sur le site</li>
+					<li>Un membre de l’équipe entre en contact avec vous, récupère votre matériel à votre domicile et vous le rapporte à la fin de la saison.</li>
+					<li>Gagnez jusqu'à 500 euros par saison !</li>
+					</ol>
+					<span>Vous avez la possibilité d’utiliser votre matériel jusqu’à 14 jours durant la saison.</span>
+					<span>Dès sa prise en charge, votre matériel sera intégralement assuré 7j/7 et 24h/24.</span>
+				</div>
+			</div>
+		</div>
+		<div class="content-wrapper col-md-6 col-xs-12" id="loc-tab">
+			<div class="content-wrap">
+				<div class="content-bubble loc">
+					<h5>Vous voulez réserver du matériel</h5>
+				</div>
+				<div class="content">
+					<ol>
+						<li>
+							Vous choisissez votre matériel sur le site.
+						</li>
+						<li>
+							Nous livrons votre matériel sur votre lieu de résidence au jour et a l'horaire de votre choix.
+						</li>
+						<li>
+							Nous récupérons le matériel à la fin de votre séjour.
+						</li>
+					</ol>
+					<span>
+						Bénéficiez d'un matériel de qualité à des tarifs imbattables sans vous déplacer.
 					</span>
-				</h4>
+					<span>
+						Durant la totalité de la transaction, le paiement est sécurisé. 
+					</span>
+				</div>
 			</div>
-		</div>
-		<div class="add-item-btn" id="add-item-toggle">
-			<h4>Mettre mon matériel en location</h4>
 		</div>
 	</div>
-</div>
-<div class="modal fade" id="add-item-modal">
-  <div class="modal-dialog  modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Ajouter un article</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      	<div class="progress-bar-wrapper">
-      		<div class="progress-step-1">
-      		</div>
-      	</div>
-		<div class="content-column">
-	      	<div class="step-title">
-				<h5 id="step-title">Type d'article</h5>
+	<div class="faq-wrapper col-xs-12">
+		<div class="faq-title">
+			<h5>Il vous reste des questions ? On y répond ici !</h5>
+		</div>
+		<div class="faq-btn-wrap">
+			<div class="faq-btn prop" onclick="displayFaqProp();">
+				<span>Questions propriétaires</span>
 			</div>
-			<div class="step-description">
-		   			Sélectionner le type de l'article que vous désirez ajouter, vous ne pouvez ajouter qu'un article à la fois
-		   	</div>	
-		   <div class="add-item-step" id="step-1" style="display: none;">
-		   		<form>
-		   			<div class="form-one-line">
-			   			<div class="form-group">
-			            	<label  class="form-control-label">Type d'objet</label>
-			            	<select class="custom-select" id="select-item-type">
-		  						<option selected disabled>Sélectionner un type</option>
-			            	</select>
-			            </div>
-			            <div class="form-group">
-			            	<label for="brand" class="form-control-label">Année d'achat</label>
-			            	<select class="custom-select" id="purchase-year">
-		  						<option disabled selected>Année</option>
-			            	</select>
-				         </div>
-			        </div>
-		   			<div class="form-group">
-		            	<label for="brand" class="form-control-label">Marque</label>
-		            	<input type="text" id="brand" class="form-control" disabled placeholder="Sélectionner d'abord l'année et le type de l'objet">
-		          	</div>
-		          	<div class="form-group">
-		            	<label for="model" class="form-control-label">Modèle</label>
-		            	<input disabled type="text" class="form-control" id="model">
-		          	</div>
-		   		</form>
-		   </div>
-		   <div class="add-item-step" id="step-2" style="display:none">
-		   		<form>
-		   			<div class="form-group">
-		   				<label for="brand" class="form-control-label">Semaines de disponibilité</label>
-		   				<input name="daterange" id="dispo-picker">
-		   			</div>
-		   		</form>
-		   </div>
-		   <div class="step-navigation">
-		   	<div class="add-item-nav" id="prev-step">Précédent</div>
-		   	<div class="add-item-nav disabled" id="next-step">Suivant</div>
-	      </div>
-	  </div>
-    </div>
-  </div>
+			<div class="faq-btn loc" onclick="displayFaqLoc();">
+				<span>Questions locataires</span>
+			</div>
+		</div>
+		<div class="faq-content-wrap">
+			<div class="content" id="faq-loc" style="display:none;">
+				<h5 class="question">Une caution est-elle nécessaire pour procéder à la réservation ?</h5>
+				<h6 class="response">Aucune caution n’est demandée pour réserver son matériel, seulement une autorisation de prélèvement. Vous n’avez pas besoin d’avoir ce montant disponible sur votre compte pour procéder à la réservation.</h6>
+
+
+				<h5 class="question">Que signifie « matériel certifié par ToutSkiFaut » ?</h5>
+				<h6 class="response">Il s’agit du matériel directement mis en location par ToutSkiFaut.  
+				Comment être sûr de trouver du matériel de qualité ? Chaque équipement mis en location par les propriétaires est examiné par un membre de l’équipe ToutSkiFaut. Nous vérifions également si la gamme est bien conforme au matériel proposé. Enfin, nous entretenons régulièrement le matériel durant la saison pour que vous profitiez des meilleures conditions de glisse.</h6>
+
+
+				<h5 class="question">Quand serai-je livré ? </h5>
+				<h6 class="response">Je communique mon lieu et mon jour d’arrivée puis je choisis 3 créneaux horaires. Je reçois un SMS à J-7 me confirmant l’heure et le jour de livraison et un autre 30 minutes avant l’arrivée du livreur.</h6>
+
+				<!-- Quels sont les frais de livraison ? 5 euros par paire de skis ou snowboard livré.  -->
+
+				<h5 class="question">À quoi correspondent les gammes ?</h5>
+				<h6 class="response">Nous avons référencé tous les modèles de 2010 à 2018 et les avons répartis en trois classes. La gamme bleue correspond aux skieurs débutants, la gamme rouge aux skieurs plus confirmés et la gamme noire conviendra aux skieurs chevronnés. </h6>
+
+				<h5 class="question">Comment être sûr du confort de mes chaussures ?</h5>
+				<h6 class="response">J’indique ma pointure exacte, la largeur de mes pieds et de mes mollets pour qu’un expert ToutSkiFaut choisisse la paire la plus adaptée à ma morphologie.</h6>
+
+				<h5 class="question">Que faire si, malgré cela, les chaussures ne me vont pas ?</h5>
+				<h6 class="response">Nous vous les échangeons gratuitement contre une seconde paire.</h6>
+
+				<h5 class="question">Quelles sont les conditions d’annulation ?</h5>
+				<h6 class="response">Jusqu’à 48h avant le début de la location. 
+				Remboursement total moins les frais de commission de ToutSkiFaut. </h6>
+
+				<h5 class="question">Mon paiement est-il sécurisé ?</h5>
+				Bien sûr, tout au long de la transaction, votre paiement est sécurisé par Stripe. 
+
+				<h5 class="question">Qu’en est-il de l’assurance ? </h5>
+				<h6 class="response">Vous avez la possibilité de souscrire ou non à notre assurance pour assurer votre matériel en cas de perte, casse ou vol sur la durée de la location.</h6>
+
+				<h5 class="question">Comment choisir mes skis ?</h5>
+				<h6 class="response">Vous avez le choix entre trois gammes de prix. 
+				Grâce à nos filtres, (taille, niveau, type de ski) nous affinons votre recherche pour vous proposer le ski le plus adapté à vos besoins. 
+				À la fin de la location, vous avez la possibilité de laisser votre avis sur le matériel loué. N’hésitez pas à consulter ces avis pour vous aider à faire votre choix !</h6>
+			</div>
+			<div class="content" id="faq-prop" style="display:none;">
+				<h5 class="question">Que se passe-t-il si mon matériel est abîmé ? <h5 class="question">
+				<h6 class="response">Dès sa prise en charge, votre matériel est assuré en cas de perte casse et vol 7j/7 et 24h/24.
+				Cette assurance est complètement gratuite pour vous. </h6>
+
+				<h5 class="question">Comment déterminer la gamme (bleue, rouge ou noire) de mes skis ?</h5>
+				<h6 class="response">Nous avons référencé tous les modèle de 2010 à 2018. Nous classons donc automatiquement votre matériel dans la gamme adéquate. 
+				Attention, ToutSkiFaut se réserve le droit de déclasser votre matériel si son état n’est pas jugé correct.</h6>
+
+				<h5 class="question">Que se passe-t-il si mon modèle n’est pas référencé ?</h5>
+				<h6 class="response">Pas de panique, vous postez votre annonce et nous reviendrons vers vous pour déterminer la gamme de votre matériel.</h6>
+
+				<h5 class="question">Que dois-je faire après avoir posté mon annonce ?</h5>
+				<h6 class="response">Un membre de l’équipe ToutSkiFaut entrera en contact avec vous et viendra récupérer votre équipement chez vous à la date et à l’horaire de votre choix. Même procédé à la fin de saison pour la restitution. </h6>
+
+				<h5 class="question">Que se passe-t-il si je veux utiliser mon matériel ? </h5>
+				Avant le début de saison, vous avez la possibilité de bloquer votre matériel pour une durée maximum de 14 jours. Vous pouvez alors venir le récupérer quand vous le souhaitez à notre entrepôt situé à Bourg-Saint-Maurice. 
+
+				<h5 class="question">Comment savoir combien mon matériel va me rapporter ?</h5>
+				<h6 class="response">Vous pouvez simulez vos revenus. Pendant la saison, un mail ou un SMS vous sera envoyé dès que votre matériel sera réservé.</h6>
+
+				<h5 class="question">Comment optimiser les chances de voir mon matériel loué ? </h5>
+				<h6 class="response">En mettant à disposition un pack complet (skis + bâtons + chaussures) et en proposant du matériel moderne et en bon état. De plus, proposer un pack complet vous fera gagner encore plus d’argent comme vous pouvez le constater en simulant vos revenus. 
+				Une description détaillée de votre matériel augmentera ses chances d’être loué.</h6>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
 {% block script %}
 <script>
-	// --- ADD-ITEM HANDLING ---
-	let actualItem = {};
-	let actualStep = 0;
 
-	// The state of each step and his error message
-	let validSteps = {
-		// 1: [false, 'Vous devez choisir le type de votre objet !'],
-		1: [true, 'Remplissez la marque, le modèle et l\'année d\'achat de votre objet !'],
-		2: [false, 'Vous n\'avez choisi aucune période durant laquelle vous disposez de vos skis, en êtes-vous sûr ?']
+	//
+	//	SIMULATE FUNCTIONS
+	//
+	var itemTotal = 0;
+	var itemValue = 18;
+	var itemQuality = 0;
+	var batonBonus = 0;
+	var rentDuration = 1;
+
+	function calculateTotal() {
+		itemTotal = Math.ceil((itemValue + itemQuality + batonBonus) * rentDuration);
+		$('#estim-value').text(`${itemTotal} €`);
 	}
 
-	// Useful consts
-
-	const itemTypes = {
-		0: 'Skis',
-		1: 'Chaussures',
-		2: 'Casque',
-		3: 'Masque',
-		4: 'Batons'
-	}
-
-	const addItemTitles = {
-		// 1: "Type d'article",
-		1: 'Informations en +',
-		2: "Durée d'indisponibilité",
-	}
-	const addItemDesc = {
-		// 1: "Sélectionner le type de l'article que vous désirez ajouter, vous ne pouvez ajouter qu'un article à la fois",
-		1: "Plus d'informations à propos de votre article",
-		2: "Les skis seront disponible sur notre site pendant toute la durée de la saison, cependant vous pouvez en profiter pendant 3 semaines si vous le désirez"
-	}
-	// Show add-item toggle on click
-	$('#add-item-toggle').on('click', function() {
-		$('#add-item-modal').modal('show');
-	});
-
-
-
-	// Step 1 : item infos
-
-	// Fill the select date with years
-
-
-	function fillSelectFrom(selectId, year) {
-		t = new Date();
-		for (let i =  t.getFullYear() + 1; i >= year; i--) {
-			console.log(i);
-			$('#' + selectId).append('<option>' + i + '</option>');
-		}
-	}
-
-
-	fillSelectFrom('purchase-year', 2010);
-	// fill select woth item types
-
-	function fillSelectWithTypes(selectId, types) {
-		for (var i = 0;i < Object.keys(types).length;i++) {
-			$('#' + selectId).append('<option>' + types[i] + '</option>');	
-		}
-	}
-	fillSelectWithTypes('select-item-type', itemTypes);
-
-	// function 
-
-	let specSelected = [false, false];
-
-		// Events on items infos
-	$('#select-item-type').on('change', function() {
-		specSelected[0] = true;
-		if (specSelected[1] === true) {
-			fillBrandWithPossibles();
-		}
-	});
-
-	$('#purchase-year').on('change', function() {
-		specSelected[1] = true;
-		if (specSelected[0] === true) {
-			fillBrandWithPossibles();
-		}
-	});
-
-	let brandSelectize;
-	function fillBrandWithPossibles() {
-		$('#brand').attr('disabled', false);
-		$('#brand').attr('placeholder', '');
-		$('#brand').removeClass('form-control');
-		$('#model').attr('disabled', false);
-		if (brandSelectize === undefined) {
-			let $brandSelectize = $('#brand').selectize({
-				plugins: ['remove_button'],
-				create: true,
-				searchField: ['name'],
-				labelField: 'name',
-				maxItems: 1,
-				// onChange: 
-			});
-			brandSelectize = $brandSelectize[0].selectize;
-		}
-		brandSelectize.clearOptions();
-		$.ajax({
-			url: '/api/all_items/1/2010',
-			success: function(r) {
-				let brandsToAdd = _.map(r, function(v, k) {
-					console.log(v, k);
-					return {
-						name: k,
-						value: k,
-						text: v
-					};
-				});
-				brandSelectize.addOption(brandsToAdd);
-			}
-		})
-	}
-
-	goNextStep();
-	// Step 3 : dispos
-
-	// Init for daterangepicker
-	$('#dispo-picker').daterangepicker({
-		minDate: '15/11/2017',
-    	maxDate: '15/04/2018'
-	});
-
-
-	// Validate the form and send it to back
-	function sendItem() {
-		
-	}
-
-	function stepSpecifics() {
-		if (actualStep === 1) {
-			$('#prev-step').hide();
-			$('.step-navigation').css('justify-content', 'flex-end');
+	$('#select-item').on('change', function(evt){
+		itemValue = parseInt($('#select-item').val());
+		console.log($(document.getElementById(evt.target.id)).attr('no-quality'));
+		if (_.includes($('#select-item').val(), 'c')) {
+			$('#select-quality').attr('disabled', true);
+			itemQuality = 0;
 		} else {
-			$('#prev-step').show();
-			$('.step-navigation').css('justify-content', 'space-between');
+			$('#select-quality').attr('disabled', false);
+			itemQuality = itemQuality = parseInt($('#select-quality').val());
 		}
-		if (actualStep === 3) {
-			$('#next-step').text('Ajouter l\'objet');
-			$('#next-step').unbind().on('click', function() {
+		calculateTotal();
+	});
 
-			});
-		}
-	}
+	$('#select-quality').on('change', function(evt){
+		itemQuality = parseInt($('#select-quality').val());
+		calculateTotal();
+	});
 
-	function goNextStep() {
-		if (actualStep !== 0 && validSteps[actualStep][0] !== true) {
-			// ADD ERROR HANDLING WHEN STEP HASNT BEEN VALIDATED => MODAL OR JUST MESSAGE ??
+	$("#select-duration").on('input', function() {
+		rentDuration = parseInt($("#select-duration").val());
+		if (rentDuration === 1) {
+			$('#range-multi').text('');
 		} else {
-			$('#step-' + actualStep).hide();
-			actualStep += 1;
-			$('#step-' + actualStep).show();
-			$('#step-title').text(addItemTitles[actualStep]);
-			$('.step-description').text(addItemDesc[actualStep]);
-			stepSpecifics();	
+			$('#range-multi').text('s');
 		}
+		$('#duration-wrap').show();
+		$('#duration-value').text(rentDuration);
+		calculateTotal();
+	});
+
+	$('#check-batons').on('change', function() {
+		if ($('#check-batons').is(':checked')) {
+			$('.checker').addClass('checked');
+			$('#with-sticks').text('Avec ');
+			batonBonus = 1.5;
+		} else {
+			$('#range-multi').text('');
+			$('.checker').removeClass('checked');
+			$('#with-sticks').text('Sans ');
+			batonBonus = 0;
+		}
+		calculateTotal();
+	});
+
+	// HOW IT WORKS FUNCTIONS
+	$('#prop-tab').on('click', function() {
+
+	});
+
+	// FAQ FUNCTIONS
+
+	function displayFaqProp() {
+		console.log('pop');
+		$('#faq-prop').show();
+		$('#faq-loc').hide();
 	}
 
-	// previous and next step for add item modal
-	$('#next-step').on('click', function() {
-		goNextStep();
-	});
-	$('#prev-step').on('click', function() {
-		$('#step-' + actualStep).hide();
-		actualStep -= (actualStep === 1) ? 0 : 1;
-		$('#step-title').text(addItemTitles[actualStep]);
-		$('#step-' + actualStep).show();
-		$('.step-description').text(addItemDesc[actualStep]);
-		stepSpecifics();
-	});
-
-
-
+	function displayFaqLoc() {
+		console.log('loc');
+		$('#faq-prop').hide();
+		$('#faq-loc').show();
+	}
 
 </script>
 {% endblock %}

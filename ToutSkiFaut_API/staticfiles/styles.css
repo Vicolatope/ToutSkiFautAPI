@@ -1,0 +1,509 @@
+* {
+  font-family: 'Roboto', sans-serif; }
+
+html, body {
+  height: 200%;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.base-wrap {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.brand-name span {
+  font-weight: bold; }
+.brand-name span:nth-child(1) {
+  color: #159EDA; }
+.brand-name span:nth-child(2) {
+  color: #1c1c1b; }
+.brand-name span:nth-child(3) {
+  color: #e30513; }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  border-bottom: 3px solid #84847f; }
+  .navbar .nav-link {
+    font-weight: bold; }
+  .navbar .logo-wrapper {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    right: calc(50% - 50px);
+    top: 0px; }
+    .navbar .logo-wrapper .center-logo {
+      height: 100px;
+      width: 100px; }
+
+.homepage-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column; }
+  .homepage-wrapper .home {
+    background-color: #65c6f0; }
+    .homepage-wrapper .home .home-image {
+      width: 100%;
+      position: relative; }
+      .homepage-wrapper .home .home-image img {
+        width: 100%; }
+      .homepage-wrapper .home .home-image .image-up {
+        background-color: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute; }
+        .homepage-wrapper .home .home-image .image-up .image-title {
+          text-align: center;
+          width: 60%;
+          margin-top: 12%;
+          color: white; }
+        .homepage-wrapper .home .home-image .image-up .button-wrapper {
+          margin-top: 3%; }
+          .homepage-wrapper .home .home-image .image-up .button-wrapper .add-item-pic {
+            cursor: pointer;
+            background-color: white;
+            color: #444;
+            padding: 8px;
+            padding-left: 28px;
+            padding-right: 28px;
+            border-radius: 5px; }
+            .homepage-wrapper .home .home-image .image-up .button-wrapper .add-item-pic:hover {
+              background-color: #117cab;
+              color: white; }
+        .homepage-wrapper .home .home-image .image-up .more-info-linker {
+          margin-top: 5%;
+          color: white;
+          cursor: pointer;
+          text-decoration: underline; }
+  .homepage-wrapper .custom-border {
+    width: 100%;
+    display: flex;
+    height: 0px; }
+    .homepage-wrapper .custom-border .border-inside {
+      height: 100%;
+      width: 33.333%;
+      z-index: 1; }
+      .homepage-wrapper .custom-border .border-inside.red {
+        border-bottom: 3px solid #e30513; }
+      .homepage-wrapper .custom-border .border-inside.black {
+        border-bottom: 3px solid #1c1c1b; }
+      .homepage-wrapper .custom-border .border-inside.blue {
+        border-bottom: 3px solid #159EDA; }
+  .homepage-wrapper .simulate-income-wrapper {
+    width: 100%;
+    background-color: #93d7f5;
+    display: flex;
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 36px; }
+    .homepage-wrapper .simulate-income-wrapper .simulate-income {
+      width: 100%;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column; }
+      .homepage-wrapper .simulate-income-wrapper .simulate-income .desc-wrapper h4 {
+        text-align: center;
+        font-weight: bold; }
+      .homepage-wrapper .simulate-income-wrapper .simulate-income .select-wrapper {
+        margin-top: 18px;
+        display: flex;
+        width: 100%;
+        justify-content: space-around; }
+        .homepage-wrapper .simulate-income-wrapper .simulate-income .select-wrapper .item-wrap {
+          width: 33%;
+          display: flex;
+          justify-content: center; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .select-wrapper .item-wrap label, .homepage-wrapper .simulate-income-wrapper .simulate-income .select-wrapper .item-wrap select {
+            width: 100%; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .select-wrapper .item-wrap input {
+            cursor: pointer; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .select-wrapper .item-wrap select {
+            border: 1px solid #ddd;
+            border-radius: 0; }
+      .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper {
+        margin-top: 72px;
+        color: white;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px; }
+        .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper h1 {
+          font-weight: bold;
+          font-size: 78px; }
+        .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper h5, .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper input {
+          margin-top: 12px;
+          margin-bottom: 12px; }
+        .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap {
+          width: 300px;
+          /* All the same stuff for Firefox */
+          /* All the same stuff for IE */ }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range] {
+            -webkit-appearance: none;
+            /* Hides the slider so that custom slider can be made */
+            width: 100%;
+            /* Specific width is required for Firefox. */
+            background: transparent;
+            /* Otherwise white in Chrome */
+            z-index: 12; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]:focus {
+            outline: none;
+            /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */ }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-ms-track {
+            width: 100%;
+            cursor: pointer;
+            /* Hides the slider so custom styles can be added */
+            background: transparent;
+            border-color: transparent;
+            color: transparent; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: 2px solid white;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #93d7f5;
+            cursor: pointer;
+            margin-top: -13px;
+            /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-moz-range-thumb {
+            border: 2px solid #000000;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #65c6f0;
+            cursor: pointer; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-ms-thumb {
+            border: 2px solid #000000;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #65c6f0;
+            cursor: pointer; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 2px;
+            cursor: pointer;
+            background: white;
+            border-radius: 1.3px;
+            border: 0.2px solid #010101; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]:focus::-webkit-slider-runnable-track {
+            background: white; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 2px;
+            cursor: pointer;
+            background: white;
+            border-radius: 1.3px;
+            border: 0.2px solid #010101; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-ms-track {
+            width: 100%;
+            height: 2px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            border-width: 16px 0;
+            color: transparent; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-ms-fill-lower {
+            background: white;
+            border: 0.2px solid #010101;
+            border-radius: 2.6px; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]:focus::-ms-fill-lower {
+            background: white; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]::-ms-fill-upper {
+            background: white;
+            border: 0.2px solid #010101;
+            border-radius: 2.6px; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .input-wrap input[type=range]:focus::-ms-fill-upper {
+            background: white; }
+        .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check {
+          margin-top: 12px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          padding: 8px; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check span {
+            margin-top: 0; }
+          .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check .checker-wrapper {
+            margin-right: 8px; }
+            .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check .checker-wrapper .custom-checker {
+              width: 36px;
+              height: 18px;
+              background-color: white;
+              position: relative;
+              border-radius: 10px;
+              border: 2px solid white;
+              display: flex;
+              align-items: center;
+              background-color: white;
+              margin-right: 8px; }
+              .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check .checker-wrapper .custom-checker .checker {
+                position: absolute;
+                height: 26px;
+                width: 26px;
+                border-radius: 50%;
+                left: 0;
+                right: 0;
+                border: 2px solid white;
+                background-color: #93d7f5;
+                transition: left 0.1s ease-in, background-color 0.2s ease-in; }
+                .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check .checker-wrapper .custom-checker .checker:not(.checked) {
+                  left: -5px;
+                  border: 2px solid white;
+                  background-color: #afe1f7; }
+                .homepage-wrapper .simulate-income-wrapper .simulate-income .slider-wrapper .baton-check .checker-wrapper .custom-checker .checker.checked {
+                  border: 2px solid white;
+                  background-color: #7ccef2;
+                  left: 14px; }
+  .homepage-wrapper .explain-cards-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%; }
+    .homepage-wrapper .explain-cards-wrap h2 {
+      font-family: 'Droid Serif', Helvetica, Arial, sans-serif; }
+    .homepage-wrapper .explain-cards-wrap .cards-wrapper {
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      width: 90%; }
+      .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item {
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        height: 400px;
+        max-width: 270px;
+        border-radius: 3%;
+        border: 2px solid #84847f; }
+        .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item:hover {
+          border: 2px solid #50504d; }
+        .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc {
+          padding-left: 12px;
+          padding-right: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 90%;
+          align-items: center; }
+          .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc .step-item-1 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold; }
+            .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc .step-item-1 .step-b, .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc .step-item-1 .step-a {
+              height: 2px;
+              width: 42%;
+              background-color: #84847f; }
+          .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc img {
+            width: 90%;
+            margin-top: 18px; }
+          .homepage-wrapper .explain-cards-wrap .cards-wrapper .explain-item .item-desc h3 {
+            margin-top: 10px;
+            margin-bottom: 0; }
+
+.how-wrapper {
+  width: 100%; }
+  .how-wrapper .tabs-wrapper {
+    width: 100%;
+    height: 60px;
+    display: flex; }
+    .how-wrapper .tabs-wrapper .tab {
+      z-index: 1;
+      width: 50%;
+      height: 100%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .how-wrapper .tabs-wrapper .tab.active {
+        background-color: #fd9ea4;
+        color: white; }
+      .how-wrapper .tabs-wrapper .tab:hover {
+        color: white;
+        background-color: #fd9ea4; }
+  .how-wrapper .content-how-wrapper {
+    padding: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f0; }
+    .how-wrapper .content-how-wrapper .content-wrapper {
+      display: flex;
+      flex-direction: center;
+      flex-direction: column;
+      align-items: center; }
+      .how-wrapper .content-how-wrapper .content-wrapper .content-wrap {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; }
+        .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content-bubble {
+          background-color: #fb535d;
+          width: 100%;
+          text-align: center;
+          padding-bottom: 8px;
+          padding-top: 8px;
+          border-radius: 2px;
+          margin-bottom: 36px;
+          color: white;
+          position: relative; }
+          .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content-bubble.loc {
+            background-color: #65c6f0; }
+            .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content-bubble.loc:after {
+              border-top: 20px solid #65c6f0; }
+          .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content-bubble h5 {
+            padding: 0;
+            margin: 0; }
+          .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content-bubble:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-top: 20px solid #fb535d;
+            bottom: calc(0 - 10px);
+            left: calc(50% - 10px); }
+        .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content {
+          width: 100%;
+          padding: 18px;
+          display: flex;
+          border-radius: 2px;
+          background-color: white;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column; }
+          .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content ol {
+            width: 75%; }
+            .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content ol li:nth-child(1), .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content ol li:nth-child(2), .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content ol li:nth-child(3) {
+              margin-bottom: 16px; }
+          .how-wrapper .content-how-wrapper .content-wrapper .content-wrap .content span {
+            text-align: center;
+            width: 100%;
+            margin-top: 8px; }
+
+.test-dropdown {
+  height: 20%; }
+
+.explain-wrapper {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center; }
+  .explain-wrapper .explain-add-item {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px; }
+    .explain-wrapper .explain-add-item .add-item-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .explain-wrapper .explain-add-item .add-item-label h2 {
+        margin-bottom: 18px; }
+      .explain-wrapper .explain-add-item .add-item-label .desc-wrapper {
+        padding: 12px;
+        border-radius: 5px;
+        margin-top: 22px; }
+        .explain-wrapper .explain-add-item .add-item-label .desc-wrapper h4:last-child {
+          margin-top: 36px;
+          margin-bottom: 36px; }
+    .explain-wrapper .explain-add-item .add-item-btn {
+      cursor: pointer;
+      color: white;
+      border: 2px solid #65c6f0;
+      background-color: #65c6f0;
+      border-radius: 2px;
+      padding: 8px; }
+      .explain-wrapper .explain-add-item .add-item-btn h4 {
+        padding: 0;
+        margin: 0; }
+      .explain-wrapper .explain-add-item .add-item-btn:hover {
+        border: 2px solid #36b4ec;
+        background-color: #36b4ec; }
+
+#add-item-modal .modal-header {
+  color: #1c1c1b; }
+  #add-item-modal .modal-header .modal-title {
+    width: 100%;
+    text-align: center;
+    font-weight: bolder; }
+  #add-item-modal .modal-header span {
+    color: #1c1c1b; }
+#add-item-modal .step-title {
+  font-weight: bold;
+  color: #1c1c1b;
+  margin-bottom: 2px; }
+#add-item-modal .step-description {
+  color: rgba(28, 28, 27, 0.7);
+  margin-bottom: 10px; }
+#add-item-modal .add-item-step {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  #add-item-modal .add-item-step .selectize-input.disabled {
+    cursor: not-allowed !important; }
+    #add-item-modal .add-item-step .selectize-input.disabled * {
+      cursor: not-allowed !important; }
+  #add-item-modal .add-item-step .form-one-line {
+    display: flex;
+    justify-content: space-between; }
+    #add-item-modal .add-item-step .form-one-line .form-group.unselected select {
+      border: #fb535d; }
+    #add-item-modal .add-item-step .form-one-line .form-group {
+      display: flex;
+      width: 50%;
+      flex-direction: column; }
+    #add-item-modal .add-item-step .form-one-line .form-group:last-child {
+      width: 40%; }
+#add-item-modal .step-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+  #add-item-modal .step-navigation .add-item-nav {
+    cursor: pointer;
+    /*border: 2px solid #159EDA;*/
+    color: #6a6a66;
+    /*color: white;*/
+    margin: 8px;
+    margin-right: 24px;
+    margin-left: 24px;
+    text-align: center;
+    padding: 4px; }
+    #add-item-modal .step-navigation .add-item-nav:hover {
+      background-color: white;
+      color: #1c1c1b; }
+    #add-item-modal .step-navigation .add-item-nav:last-child {
+      border-radius: 2px;
+      background-color: #fb535d;
+      color: white;
+      padding-left: 12px;
+      padding-right: 12px; }
+      #add-item-modal .step-navigation .add-item-nav:last-child:hover {
+        background-color: #fb3a46; }
+      #add-item-modal .step-navigation .add-item-nav:last-child.disabled {
+        background-color: #ffe8ea;
+        cursor: not-allowed; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -9,8 +9,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http.response import HttpResponse, JsonResponse
 from django.contrib.auth.models import User, Group
 from rest_framework.views import APIView
+from django.db import connection
 
 from .constants import db_credentials
+from django.views.decorators.csrf import csrf_exempt
+import pendulum
 
 import psycopg2
 
@@ -29,11 +32,52 @@ def rent_item_detail(request, pk):
     srlz = RentItemSerializer(rent_item)
     return Response({'rentitem': srlz.data})
 
+@csrf_exempt
+def add_new_item(request):
+    print(request.user)
+    """Create a new RentItem"""
+    cleaned_data = {
+        'user': request.user.id,
+    }
+    for name, value in request.POST.items():
+        if 'size' in name:
+            size_unit = name.split('-')[1]
+            cleaned_data['size'] = int(value.replace('cm', ''))
+            cleaned_data['size_unit'] = size_unit
+        elif name == 'model':
+            cleaned_data['name'] = value
+        elif 'disp' in name:
+            cleaned_data[name] = pendulum.parse(value)
+        elif name == 'type':
+            cleaned_data[name] = int(value)
+        else:
+            cleaned_data[name] = value
+    if (request.user.is_anonymous()):
+        return HttpResponse(status=status.HTTP_403_FORBIDDEN)
+    try:
+        r = RentItem(**cleaned_data)
+        r.save()
+        return HttpResponse('created', status=status.HTTP_201_CREATED)
+    except:
+        return HttpResponse('not created', status=status.HTTP_400_BAD_REQUEST)
 
 class RentItemList(APIView):
     def post(self, request):
         """Create a new RentItem"""
-        serializer = RentItemSerializer(data=request.data)
+        cleaned_data = {
+            'user': request.user,
+        }
+        for name, value in request.data.items():
+            if 'size' in name:
+                size_unit = name.split('-')[1]
+                cleaned_data['size'] = int(value.replace('cm', ''))
+                cleaned_data['size_unit'] = size_unit
+            elif name == 'model':
+                cleaned_data['name'] = value
+            else:
+                cleaned_data[name] = valuew
+        serializer = RentItemSerializer(data=cleaned_data)
+        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

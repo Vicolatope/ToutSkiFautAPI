@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="profile-wrapper">
+	<div class="profile-page">
+		<div class="profile-tabs">
+			<div class="profile-tab" tab-content="infos">
+				Mes informations
+			</div>
+			<div class="profile-tab" tab-content="items">
+				Mon matériel
+			</div>
+			<div class="profile-tab" tab-content="locations">
+				Mes locations
+			</div>
+		</div>
+		<div class="profile-content">
+			<div class="user-infos">
+				{{request.user.first_name}} {{request.user.last_name}}
+			</div>
+			<div class="row content" id="infos">
+				<div class="form-group col-6">
+	            	<label for="name" class="form-control-label">Mail</label>
+	            	<input type="text" id="name" class="form-control i-info" placeholder="{{request.user}}" disabled>
+	          	</div>
+	          	<div class="form-group col-6">
+	            	<label for="name" class="form-control-label">Téléphone</label>
+	            	<input type="text" id="name" class="form-control i-info" placeholder="">
+	          	</div>
+			</div>
+			<div class="content" id="items"></div>
+			<div class="content" id="locations"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}

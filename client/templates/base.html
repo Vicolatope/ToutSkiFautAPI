@@ -24,34 +24,129 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Barlow:300" rel="stylesheet">
+	<script src="https://use.fontawesome.com/acb60a9370.js"></script>
 </head>
 <body>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '806443349525320',
+	      cookie     : true,
+	      xfbml      : true,
+	      version    : 'v2.11'
+	    });
+	      
+	    FB.AppEvents.logPageView();   
+	      
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "https://connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+
+	</script>
+	<script type="text/javascript">
+	    var domain = 'https://apps.facebook.com/',
+	        redirectURI = domain + 'fb/';
+
+	    window.top.location = 'https://www.facebook.com/dialog/oauth/' +
+	                                '?client_id=806443349525320' +
+	                                '&redirect_uri=' + encodeURIComponent(redirectURI) +
+	                                '&scope=email';
+	</script>
 	{% block navbar %}
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <a class="navbar-brand" href="#"><span class="brand-name"><span>Tout</span><span>Ski</span><span>Faut</span></span></a>
+	  </button> -->
+	  <div class="menu-toggler">
+	  	<div class="menu-wrapper">
+	  		<div class="menu-custom-toggle">
+	  			<div class="bars-wrap">
+		  			<div class="menu-bars-wrap">
+		  				<div class="menu-bar"></div>
+		  				<div class="menu-bar"></div>
+		  				<div class="menu-bar"></div>
+		  			</div>
+		  			<div class="menu-text">
+	  					<span>MENU</span>
+	  				</div>
+	  			</div>
+	  		</div>
+	  		<div class="menu-content">
+	  			<ul>
+	  				<a href="/">
+		  				<li>
+		  					Accueil
+		  				</li>
+	  				</a>
+	  				{% if request.user.is_anonymous %}
+	  				<li onclick="callConnexion('');" class="nav-log">
+	  					Connexion
+	  				</li>
+	  				<li class="nav-log">
+	  					Inscription
+	  				</li>
+	  				<a href="/profile" style="display:none;" class="logged-nav">
+		  				<li>
+		  					Mon profil
+		  				</li>
+		  			</a>
+	  				{% else %}
+	  				<li class="nav-log" onclick="callConnexion('');" style="display:none;">
+	  					Connexion
+	  				</li>
+	  				<li style="display:none;" class="nav-log">
+	  					Inscription
+	  				</li>
+	  				<a href="/profile" class="logged-nav">
+		  				<li>
+		  					Mon profil
+		  				</li>
+		  			</a>
+		  			{% endif %}
+	  				<li>Je veux louer des skis</li>
+	  				<li onclick="scrollToHow();">Comment ça marche ?</li>
+	  				<li>Contact</li>
+	  			</ul>
+	  		</div>
+	  	</div>
+	  </div>
 	  <div class="logo-wrapper">
-		<img class="center-logo" src="{% static 'logo-couleur.png' %}">
+	  	<a href="/">
+		<img class="center-logo" src="{% static 'logo-couleur.png' %}"></a>
 		</div>
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	    </ul>
 	    <ul class="navbar-nav" id="log-nav">
 	    	<li class="nav-item">
-	        	<a class="nav-link" href="#" id="navbar-add-item">Louer mes skis</a>
+	        	<a class="nav-link" title="Louer mes skis" href="/add_item" id="navbar-add-item">Louer mes skis</a>
 	      	</li>
-		    {% if session.isAuthenticated %}
-		    <li class="nav-item">	
-		    	<a class="nav-link" href="/accounts/logging_out">Déconnexion</a>
+		    {% if request.user.is_authenticated %}
+		    <li class="nav-item logged-nav">	
+		    	<a class="nav-link" title="Deconnexion" href="/accounts/logging_out">Déconnexion</a>
+		    </li>
+		    <li class="nav-item nav-log" style="display: none;">
+		    	<a class="nav-link" title="Inscription" href="#" id="inscription-toggle">Inscription</a>
+		    </li>
+		    <li class="nav-item nav-log" style="display: none;">
+		    	<a class="nav-link" title="Connexion" href="#" id="login-toggle">Connexion</a>
 		    </li>
 		    {% else %}
-		    <li class="nav-item">
-		    	<a class="nav-link" href="#" id="inscription-toggle">Inscription</a>
+		    <li class="nav-item logged-nav" style="display: none;">	
+		    	<a class="nav-link" title="Deconnexion" href="/accounts/logging_out">Déconnexion</a>
 		    </li>
-		    <li class="nav-item">
-		    	<a class="nav-link" href="#" id="login-toggle">Connexion</a>
+		    <li class="nav-item nav-log">
+		    	<a class="nav-link" title="Inscription" href="#" id="inscription-toggle">Inscription</a>
+		    </li>
+		    <li class="nav-item nav-log">
+		    	<a class="nav-link" title="Connexion" href="#" id="login-toggle">Connexion</a>
 		    </li>
 		    {% endif %}
 		</ul>
@@ -61,6 +156,8 @@
 	<div class="container-fluid base-wrap">
 		{% block content %}
 		{% endblock %}
+	</div>
+	<div class="footer">
 	</div>
 	<div class="modal fade" id="login-modal">
 	  <div class="modal-dialog" role="document">
@@ -81,11 +178,13 @@
  					</div>
  					<div class="form-group">
  						<label for="login-password" class="form-control-label">Mot de passe</label>
-		            	<input type="text" class="form-control" id="login-password">
+		            	<input type="password" class="form-control" id="login-password">
  					</div>
- 					<div id="connect-btn">
- 						Se connecter
- 					</div>
+ 					<div class="log-btn-wrap">
+	 					<div id="connect-btn" class="btn">
+	 						Se connecter
+	 					</div>
+	 				</div>
  				</form>
   			</div>
 	    </div>
@@ -103,18 +202,48 @@
  			<div class="modal-body">
  				<div id="inscription-errors">
  				</div>
+ 				<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
  				<form>
  					<div class="form-group">
- 						<label for="inscript-username" class="form-control-label">Mail</label>
-		            	<input type="text" class="form-control" id="inscript-username">
+		            	<input type="text" class="form-control" id="first_name" placeholder="Prénom">
+		            </div>
+		            <div class="form-group">
+		            	<input type="text" class="form-control" id="last_name" placeholder="Nom">
  					</div>
  					<div class="form-group">
- 						<label for="inscript-password" class="form-control-label">Mot de passe</label>
-		            	<input type="text" class="form-control" id="inscript-password">
+		            	<input type="text" placeholder="Téléphone" class="form-control" id="phone_number">
  					</div>
- 					<div id="create-btn">
- 						Créer un compte
+ 					<div class="form-group">
+		            	<input placeholder="Adresse e-mail" type="text" class="form-control" id="inscript-username">
  					</div>
+ 					<div class="form-group">
+		            	<input type="password" placeholder="Mot de passe" class="form-control" id="inscript-password">
+ 					</div>
+ 					<div class="form-group birth-group">
+ 						<label for="birthdate">
+ 							Date de naissance
+ 						</label>
+ 						<div class="select-date-wrap">
+			            	<select class="form-control" id="birthdate-day">
+			            		<option selected disabled>Jour</option>
+
+			            	</select>
+			            	<select class="form-control" id="birthdate-month">
+			            		<option selected disabled>Mois</option>
+			            	</select>
+			            	<select type="select" class="form-control" id="birthdate-year">
+			            		<option selected disabled>Année</option>
+			            	</select>
+			            </div>
+			            <legend>
+		            		Vous devez être majeur pour vous inscrire
+		            	</legend>
+		            </div>
+ 					<div class="log-btn-wrap">
+	 					<div id="create-btn" class="btn">
+	 						Créer un compte
+	 					</div>
+	 				</div>
  				</form>
   			</div>
 	    </div>
@@ -122,6 +251,15 @@
 	</div>
 </body>
 	<script>
+		// NAV HANDLING
+		function scrollToHow() {
+			// var homeHeight = $('.home').height();
+			// var simHeight = $('simulate-income-wrapper').height();
+			// console.log(homeHeight)
+			// var totalHeight = homeHeight + simHeight;
+			// window.sroll(0, totalHeight);
+			$('html, body').animate({scrollTop: $(".how-wrapper").offset().top - $('.navbar').outerHeight()}, 400);
+		}
 		// CONNEXION HANDLING
 
 		var isConnected = false;
@@ -166,10 +304,8 @@
 				},
 				success: function(r) {
 					if (r === 'ok') {
-						$('#log-nav')
-							.html(`<li class="nav-item">	
-				    				<a class="nav-link" href="/accounts/logging_out">Déconnexion</a>
-				     				</li>`);
+						$('.nav-log').hide();
+						$('.logged-nav').show();
 						$('#login-modal').modal('hide');
 						$('#login-errors').text('');
 						isConnected = true;
@@ -177,6 +313,7 @@
 				},
 				error: function(r) {
 					$('#login-errors').text('Mauvais identifiants ..');
+					console.log(r, 'ERRROR');
 				}
 			});
 		}
@@ -185,30 +322,43 @@
 		function createAccount() {
 			var username = $('#inscript-username').val();
 			var password = $('#inscript-password').val();
-			console.log(username, password);
-			$.ajax({
-				url: '/accounts/create',
-				method: 'POST',
-				data: {
-					username: username,
-					password: password,
-				},
-				success: function(r) {
-					console.log(r);
-					if (r === 'user created') {
-						$('#log-nav')
-							.html(`<li class="nav-item">	
-				    				<a class="nav-link" href="/accounts/logging_out">Déconnexion</a>
-				    				</li>`);
-						$('#inscription-modal').modal('hide');
-						$('#inscription-errors').text('');
-						isConnected = true;
+			var lastName = $('#last_name').val();
+			var firstName = $('#first_name').val();
+			var year = parseInt($('#birthdate-year').val());
+			var month = parseInt($('#birthdate-month').val());
+			var day = parseInt($('#birthdate-day').val());
+			console.log(day, month, year);
+			birthdate = moment([year, month, day]);
+			if (birthdate.isValid() ) {
+				$.ajax({
+					url: '/accounts/create',
+					method: 'POST',
+					data: {
+						username: username,
+						password: password,
+						first_name: firstName,
+						last_name: lastName,
+						birthdate: birthdate.format('YYYY-MM-DD')
+					},
+					success: function(r) {
+						console.log(r);
+						if (r === 'user created') {
+							$('.nav-log').hide();
+							$('.logged-nav').show();
+							$('#inscription-modal').modal('hide');
+							$('#inscription-errors').text('');
+							isConnected = true;
+						} else {
+					
+						}
+					},
+					error: function(r) {
+						$('#inscriptions-errors').text(r.responseText)
 					}
-				},
-				error: function(e) {
-					console.log(e);
-				}
-			})
+				});
+			} else {
+				$('#inscription-errors').text('Entrez une date de naissance valide');
+			}
 		}
 		$('#connect-btn').on('click', function() {
 			connect();
@@ -218,6 +368,37 @@
 			createAccount();
 			console.log('hello');
 		});
+		function callConnexion(errorMessage) {
+			$('#login-modal').modal('show');
+			$('#login-errors').text(errorMessage);
+		}
+		// INIT INSCRIPTION MODAL
+		function initBirthDate() {
+			var months = {
+				1: 'Janvier',
+				2: 'Février',
+				3: 'Mars',
+				4: 'Avril',
+				5: 'Mai',
+				6: 'Juin',
+				7: 'Juillet',
+				8: 'Août',
+				9: 'Septembre',
+				10: 'Octobre',
+				11: 'Novembre',
+				12: 'Décembre'
+			}
+			for (var i = 1910; i < 2001; i++) {
+				$('#birthdate-year').append('<option value="' + i + '">' + i + '</option>' );
+			}
+			for (var i = 1; i < 13; i++) {
+				$('#birthdate-month').append('<option value="' + i + '">' + months[i] + '</option>' );
+			}
+			for (var i = 1; i < 32; i++) {
+				$('#birthdate-day').append('<option value="' + i + '">' + i + '</option>' );
+			}
+		}
+		initBirthDate();
 	</script>
 	{% block script %}
 	{% endblock %}
