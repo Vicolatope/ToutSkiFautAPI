@@ -37,7 +37,10 @@
 	      version    : 'v2.11'
 	    });
 	      
-	    FB.AppEvents.logPageView();   
+	    FB.AppEvents.logPageView();
+	    FB.getLoginStatus(function(response) {
+		    statusChangeCallback(response);
+		});
 	      
 	  };
 
@@ -49,15 +52,15 @@
 	     fjs.parentNode.insertBefore(js, fjs);
 	   }(document, 'script', 'facebook-jssdk'));
 
+
 	</script>
 	<script type="text/javascript">
-	    var domain = 'https://apps.facebook.com/',
-	        redirectURI = domain + 'fb/';
+	    //     redirectURI = 'https://' + window.location.hostname + 'fb/';
 
-	    window.top.location = 'https://www.facebook.com/dialog/oauth/' +
-	                                '?client_id=806443349525320' +
-	                                '&redirect_uri=' + encodeURIComponent(redirectURI) +
-	                                '&scope=email';
+	    // window.top.location = 'https://www.facebook.com/dialog/oauth/' +
+	    //                             '?client_id=806443349525320' +
+	    //                             '&redirect_uri=' + encodeURIComponent(redirectURI) +
+	    //                             '&scope=email';
 	</script>
 	{% block navbar %}
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">

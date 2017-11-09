@@ -26,7 +26,7 @@ SECRET_KEY = '1=c_(thtl-0fm#37k&(ua46c@aw7e)ex5yf*x!k&p&+ef!r%8w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.0.10','192.168.1.26' , 'secure-mountain-49307.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '192.168.0.10','192.168.1.26' , '192.168.0.30', 'secure-mountain-49307.herokuapp.com']
 
 CSRF_HEADER_NAME = 'X_CSRFTOKEN'
 
